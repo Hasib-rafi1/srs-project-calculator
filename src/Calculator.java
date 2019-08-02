@@ -71,7 +71,7 @@ public class Calculator {
 			return num * num;
 		}
 		if (newMode == MonoOperatorModes.squareRoot) {
-			return Math.sqrt(num);
+			return sqrt(num);
 		}
 
 		// never reach
@@ -96,5 +96,18 @@ public class Calculator {
 	public static void main(String[] args) {
 		calculatorUI calculatorUI = new calculatorUI();
 		calculatorUI.init();
+	}
+	
+	public static double sqrt(double number) {
+		double t;
+	 
+		double squareRoot = number / 2;
+	 
+		do {
+			t = squareRoot;
+			squareRoot = (t + (number / t)) / 2;
+		} while ((t - squareRoot) != 0);
+	 
+		return squareRoot;
 	}
 }
